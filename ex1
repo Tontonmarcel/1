@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <conio2.h>
+#include <unistd.h>
+
+static void	ft_putchar(char c){
+	write(1, &c, 1);
+}
+
+void	ft_putstr(char *str,int color, int back,int x, int y){
+	int		i;
+
+	i = 0;
+	textbackground(back);
+    textcolor(color);
+    gotoxy(x,y);
+	while (str[i] != '\0')
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+}
+
+int main(int argc, char ** argv){
+    int a,b;
+    ft_putstr(" Saisissez vos deux valeurs : ",9,7,2,2);
+    textbackground(0);
+    textcolor(7);
+    gotoxy(1,4);
+    scanf("%d",&a);
+    textcolor(8);
+    gotoxy(1,6);
+    scanf("%d",&b);
+    gotoxy(5,7);
+    (a*b<=0)? ft_putstr("Le signe est : -\n",4,0,5,7):ft_putstr("Le signe est : -\n",2,0,5,7);
+    textcolor(15);
+    return 0;
+}
